@@ -4,7 +4,9 @@ ENV APACHE_DOCUMENT_ROOT /app/public
 WORKDIR /app
 
 # Install additional dependacnies and configure apache
-RUN apt-get update -y \
+RUN rm -rf  /etc/apt/sources.list \
+    && echo "deb http://mirrors.aliyun.com/debian/ bullseye main non-free contrib \ndeb-src http://mirrors.aliyun.com/debian/ bullseye main non-free contrib \ndeb http://mirrors.aliyun.com/debian-security/ bullseye-security main \ndeb-src http://mirrors.aliyun.com/debian-security/ bullseye-security main \ndeb http://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib \ndeb-src http://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib \ndeb http://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib \ndeb-src http://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib \n" > /etc/apt/sources.list \
+    && apt-get update -y \
     && apt-get install -y git zip unzip libpng-dev libldap2-dev libzip-dev wait-for-it \
     && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu \
     && docker-php-ext-install pdo_mysql gd ldap zip \

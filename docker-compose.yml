@@ -10,7 +10,7 @@ services:
   db:
     image: mysql:8
     environment:
-      MYSQL_DATABASE: bookstack-dev
+      MYSQL_DATABASE: bookstack-test
       MYSQL_USER: bookstack-test
       MYSQL_PASSWORD: bookstack-test
       MYSQL_RANDOM_ROOT_PASSWORD: 'true'
@@ -18,6 +18,8 @@ services:
     volumes:
       - ./dev/docker/init.db:/docker-entrypoint-initdb.d
       - db:/var/lib/mysql
+    ports:
+      - "3306:3306"
   app:
     build:
       context: .
@@ -27,7 +29,7 @@ services:
       DB_CONNECTION: mysql
       DB_HOST: db
       DB_PORT: 3306
-      DB_DATABASE: bookstack-dev
+      DB_DATABASE: bookstack-test
       DB_USERNAME: bookstack-test
       DB_PASSWORD: bookstack-test
       TEST_DATABASE_URL: mysql://bookstack-test:bookstack-test@db/bookstack-test
