@@ -58,12 +58,12 @@ return [
 
     // Entities
     'entity_not_found' => '未找到项目',
-    'bookshelf_not_found' => '未找到书架',
-    'book_not_found' => '未找到图书',
+    'bookshelf_not_found' => '未找到空间',
+    'book_not_found' => '未找到项目',
     'page_not_found' => '未找到页面',
-    'chapter_not_found' => '未找到章节',
-    'selected_book_not_found' => '选中的书未找到',
-    'selected_book_chapter_not_found' => '未找到所选的图书或章节',
+    'chapter_not_found' => '未找到分组',
+    'selected_book_not_found' => '选中的项目未找到',
+    'selected_book_chapter_not_found' => '未找到所选的项目或分组',
     'guests_cannot_save_drafts' => '访客不能保存草稿',
 
     // Users

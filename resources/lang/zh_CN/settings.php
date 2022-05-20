@@ -51,9 +51,9 @@ return [
     // Color settings
     'content_colors' => '内容颜色',
     'content_colors_desc' => '设置页面组织层次中所有元素的颜色。建议选择与默认颜色相似的亮度的颜色。',
-    'bookshelf_color' => '书架颜色',
-    'book_color' => '图书颜色',
-    'chapter_color' => '章节颜色',
+    'bookshelf_color' => '空间颜色',
+    'book_color' => '项目颜色',
+    'chapter_color' => '分组颜色',
     'page_color' => '页面颜色',
     'page_draft_color' => '页面草稿颜色',
 
@@ -87,7 +87,7 @@ return [
     'maint_send_test_email_mail_subject' => '测试电子邮件',
     'maint_send_test_email_mail_greeting' => '邮件发送功能看起来工作正常！',
     'maint_send_test_email_mail_text' => '恭喜！您收到了此邮件通知，您的电子邮件设置看起来已配置正确。',
-    'maint_recycle_bin_desc' => '被删除的书架、书籍、章节和页面会被存入回收站，您可以还原或永久删除它们。回收站中较旧的项目可能会在系统设置的一段时间后被自动删除。',
+    'maint_recycle_bin_desc' => '被删除的空间、项目、分组和页面会被存入回收站，您可以还原或永久删除它们。回收站中较旧的项目可能会在系统设置的一段时间后被自动删除。',
     'maint_recycle_bin_open' => '打开回收站',
 
     // Recycle Bin
@@ -146,8 +146,8 @@ return [
     'role_system' => '系统权限',
     'role_manage_users' => '管理用户',
     'role_manage_roles' => '管理角色与角色权限',
-    'role_manage_entity_permissions' => '管理所有图书，章节和页面的权限',
-    'role_manage_own_entity_permissions' => '管理自己的图书，章节和页面的权限',
+    'role_manage_entity_permissions' => '管理所有项目，分组和页面的权限',
+    'role_manage_own_entity_permissions' => '管理自己的项目，分组和页面的权限',
     'role_manage_page_templates' => '管理页面模板',
     'role_access_api' => '访问系统 API',
     'role_manage_settings' => '管理App设置',
@@ -155,7 +155,7 @@ return [
     'role_editor_change' => '更改页面编辑器',
     'role_asset' => '资源许可',
     'roles_system_warning' => '请注意，拥有上述三个权限中的任何一个都可以允许用户更改自己的权限或系统中其他人的权限。 请只将拥有这些权限的角色分配给你信任的用户。',
-    'role_asset_desc' => '对系统内资源的默认访问许可将由这些权限控制。单独设置在书籍，章节和页面上的权限将覆盖这里的权限设定。',
+    'role_asset_desc' => '对系统内资源的默认访问许可将由这些权限控制。单独设置在项目，分组和页面上的权限将覆盖这里的权限设定。',
     'role_asset_admins' => '管理员可自动获得对所有内容的访问权限，但这些选项可能会显示或隐藏UI选项。',
     'role_all' => '全部的',
     'role_own' => '拥有的',
