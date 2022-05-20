@@ -113,6 +113,7 @@ return [
     'books_popular' => '热门项目',
     'books_recent' => '最近的项目',
     'books_new' => '新项目',
+    'books_all' => '所有项目',
     'books_new_action' => '新项目',
     'books_popular_empty' => '最受欢迎的项目将出现在这里。',
     'books_new_empty' => '最近创建的项目将出现在这里。',

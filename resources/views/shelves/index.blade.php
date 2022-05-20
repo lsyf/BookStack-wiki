@@ -28,21 +28,6 @@
 @stop
 
 @section('left')
-    @if($recents)
-        <div id="recents" class="mb-xl">
-            <h5>{{ trans('entities.recently_viewed') }}</h5>
-            @include('entities.list', ['entities' => $recents, 'style' => 'compact'])
-        </div>
-    @endif
-
-    <div id="popular" class="mb-xl">
-        <h5>{{ trans('entities.shelves_popular') }}</h5>
-        @if(count($popular) > 0)
-            @include('entities.list', ['entities' => $popular, 'style' => 'compact'])
-        @else
-            <div class="text-muted">{{ trans('entities.shelves_popular_empty') }}</div>
-        @endif
-    </div>
 
     <div id="new" class="mb-xl">
         <h5>{{ trans('entities.shelves_new') }}</h5>
