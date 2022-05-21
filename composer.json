@@ -1,4 +1,10 @@
 {
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    },
     "name": "bookstackapp/bookstack",
     "description": "BookStack documentation platform",
     "keywords": [
