@@ -6,7 +6,7 @@
 
     <ul class="sidebar-page-list mt-xs menu entity-list">
         @if (userCan('view', $book))
-            <li class="list-item-book book">
+            <li class="list-item-book book" hidden>
                 @include('entities.list-item-basic', ['entity' => $book, 'classes' => ($current->matches($book)? 'selected' : '')])
             </li>
         @endif
