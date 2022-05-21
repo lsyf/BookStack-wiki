@@ -65,21 +65,12 @@
 @stop
 
 @section('right')
-    <div class="mb-xl">
-        <h5>{{ trans('common.details') }}</h5>
-        <div class="text-small text-muted blended-links">
-            @include('entities.meta', ['entity' => $book])
-            @if($book->restricted)
-                <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $book))
-                        <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
-                    @else
-                        @icon('lock'){{ trans('entities.books_permissions_active') }}
-                    @endif
-                </div>
-            @endif
+    @if(count($bookParentShelves) > 0)
+        <div class="actions mb-xl">
+            @include('entities.list', ['entities' => $bookParentShelves, 'style' => 'compact'])
         </div>
-    </div>
+    @endif
+
 
     <div class="actions mb-xl">
         <h5>{{ trans('common.actions') }}</h5>
@@ -140,30 +131,36 @@
         </div>
     </div>
 
-@stop
-
-@section('left')
-
-    @include('entities.search-form', ['label' => trans('entities.books_search_this')])
-
     @if($book->tags->count() > 0)
         <div class="mb-xl">
             @include('entities.tag-list', ['entity' => $book])
         </div>
     @endif
 
-    @if(count($bookParentShelves) > 0)
-        <div class="actions mb-xl">
-            <h5>{{ trans('entities.shelves_long') }}</h5>
-            @include('entities.list', ['entities' => $bookParentShelves, 'style' => 'compact'])
+    <div class="mb-xl">
+        <h5>{{ trans('common.details') }}</h5>
+        <div class="text-small text-muted blended-links">
+            @include('entities.meta', ['entity' => $book])
+            @if($book->restricted)
+                <div class="active-restriction">
+                    @if(userCan('restrictions-manage', $book))
+                        <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
+                    @else
+                        @icon('lock'){{ trans('entities.books_permissions_active') }}
+                    @endif
+                </div>
+            @endif
         </div>
-    @endif
+    </div>
 
-    @if(count($activity) > 0)
-        <div class="mb-xl">
-            <h5>{{ trans('entities.recent_activity') }}</h5>
-            @include('common.activity-list', ['activity' => $activity])
-        </div>
-    @endif
+@stop
+
+@section('left')
+
+    @include('entities.search-form', ['label' => trans('entities.books_search_this')])
+
+    @include('entities.book-tree', ['book' => $book, 'sidebarTree' => $sidebarTree])
+
+
 @stop
 

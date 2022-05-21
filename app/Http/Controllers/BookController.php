@@ -39,8 +39,6 @@ class BookController extends Controller
         $order = setting()->getForCurrentUser('books_sort_order', 'asc');
 
         $books = $this->bookRepo->getAllPaginated(18, $sort, $order);
-        $recents = $this->isSignedIn() ? $this->bookRepo->getRecentlyViewed(4) : false;
-        $popular = $this->bookRepo->getPopular(4);
         $new = $this->bookRepo->getRecentlyCreated(4);
 
         $this->entityContextManager->clearShelfContext();
@@ -49,8 +47,6 @@ class BookController extends Controller
 
         return view('books.index', [
             'books'   => $books,
-            'recents' => $recents,
-            'popular' => $popular,
             'new'     => $new,
             'view'    => $view,
             'sort'    => $sort,
@@ -125,8 +121,9 @@ class BookController extends Controller
         }
 
         $this->setPageTitle($book->getShortName());
-
+        $sidebarTree = (new BookContents($book))->getTree();
         return view('books.show', [
+            'sidebarTree'       => $sidebarTree,
             'book'              => $book,
             'current'           => $book,
             'bookChildren'      => $bookChildren,

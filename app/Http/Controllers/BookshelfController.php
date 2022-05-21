@@ -43,8 +43,6 @@ class BookshelfController extends Controller
         ];
 
         $shelves = $this->bookshelfRepo->getAllPaginated(18, $sort, $order);
-        $recents = $this->isSignedIn() ? $this->bookshelfRepo->getRecentlyViewed(4) : false;
-        $popular = $this->bookshelfRepo->getPopular(4);
         $new = $this->bookshelfRepo->getRecentlyCreated(4);
 
         $this->entityContextManager->clearShelfContext();
@@ -52,8 +50,6 @@ class BookshelfController extends Controller
 
         return view('shelves.index', [
             'shelves'     => $shelves,
-            'recents'     => $recents,
-            'popular'     => $popular,
             'new'         => $new,
             'view'        => $view,
             'sort'        => $sort,
@@ -124,7 +120,6 @@ class BookshelfController extends Controller
             'shelf'                   => $shelf,
             'sortedVisibleShelfBooks' => $sortedVisibleShelfBooks,
             'view'                    => $view,
-            'activity'                => $activities->entityActivity($shelf, 20, 1),
             'order'                   => $order,
             'sort'                    => $sort,
         ]);

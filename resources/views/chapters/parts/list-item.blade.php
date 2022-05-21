@@ -4,7 +4,7 @@
     <span class="icon text-chapter">@icon('chapter')</span>
     <div class="content">
         <h4 class="entity-list-item-name break-text">{{ $chapter->name }}</h4>
-        <div class="entity-item-snippet">
+        <div class="entity-item-snippet" hidden>
             <p class="text-muted break-text mb-s">{{ $chapter->getExcerpt() }}</p>
         </div>
     </div>
