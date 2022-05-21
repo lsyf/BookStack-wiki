@@ -62,33 +62,6 @@
 
 @section('right')
 
-    <div class="mb-xl">
-        <h5>{{ trans('common.details') }}</h5>
-        <div class="blended-links text-small text-muted">
-            @include('entities.meta', ['entity' => $chapter])
-
-            @if($book->restricted)
-                <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $book))
-                        <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
-                    @else
-                        @icon('lock'){{ trans('entities.books_permissions_active') }}
-                    @endif
-                </div>
-            @endif
-
-            @if($chapter->restricted)
-                <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $chapter))
-                        <a href="{{ $chapter->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.chapters_permissions_active') }}</a>
-                    @else
-                        @icon('lock'){{ trans('entities.chapters_permissions_active') }}
-                    @endif
-                </div>
-            @endif
-        </div>
-    </div>
-
     <div class="actions mb-xl">
         <h5>{{ trans('common.actions') }}</h5>
         <div class="icon-list text-primary">
@@ -143,17 +116,46 @@
             @endif
         </div>
     </div>
-@stop
-
-@section('left')
-
-    @include('entities.search-form', ['label' => trans('entities.chapters_search_this')])
 
     @if($chapter->tags->count() > 0)
         <div class="mb-xl">
             @include('entities.tag-list', ['entity' => $chapter])
         </div>
     @endif
+
+    <div class="mb-xl">
+        <h5>{{ trans('common.details') }}</h5>
+        <div class="blended-links text-small text-muted">
+            @include('entities.meta', ['entity' => $chapter])
+
+            @if($book->restricted)
+                <div class="active-restriction">
+                    @if(userCan('restrictions-manage', $book))
+                        <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
+                    @else
+                        @icon('lock'){{ trans('entities.books_permissions_active') }}
+                    @endif
+                </div>
+            @endif
+
+            @if($chapter->restricted)
+                <div class="active-restriction">
+                    @if(userCan('restrictions-manage', $chapter))
+                        <a href="{{ $chapter->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.chapters_permissions_active') }}</a>
+                    @else
+                        @icon('lock'){{ trans('entities.chapters_permissions_active') }}
+                    @endif
+                </div>
+            @endif
+        </div>
+    </div>
+
+@stop
+
+@section('left')
+
+    @include('entities.search-form', ['label' => trans('entities.chapters_search_this')])
+
 
     @include('entities.book-tree', ['book' => $book, 'sidebarTree' => $sidebarTree])
 @stop

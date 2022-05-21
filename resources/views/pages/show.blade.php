@@ -39,11 +39,6 @@
 
 @section('left')
 
-    @if($page->tags->count() > 0)
-        <section>
-            @include('entities.tag-list', ['entity' => $page])
-        </section>
-    @endif
 
     @if ($page->attachments->count() > 0)
         <div id="page-attachments" class="mb-l">
@@ -74,48 +69,6 @@
 @stop
 
 @section('right')
-    <div id="page-details" class="entity-details mb-xl">
-        <h5>{{ trans('common.details') }}</h5>
-        <div class="body text-small blended-links">
-            @include('entities.meta', ['entity' => $page])
-
-            @if($book->restricted)
-                <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $book))
-                        <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
-                    @else
-                        @icon('lock'){{ trans('entities.books_permissions_active') }}
-                    @endif
-                </div>
-            @endif
-
-            @if($page->chapter && $page->chapter->restricted)
-                <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $page->chapter))
-                        <a href="{{ $page->chapter->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.chapters_permissions_active') }}</a>
-                    @else
-                        @icon('lock'){{ trans('entities.chapters_permissions_active') }}
-                    @endif
-                </div>
-            @endif
-
-            @if($page->restricted)
-                <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $page))
-                        <a href="{{ $page->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.pages_permissions_active') }}</a>
-                    @else
-                        @icon('lock'){{ trans('entities.pages_permissions_active') }}
-                    @endif
-                </div>
-            @endif
-
-            @if($page->template)
-                <div>
-                    @icon('template'){{ trans('entities.pages_is_template') }}
-                </div>
-            @endif
-        </div>
-    </div>
 
     <div class="actions mb-xl">
         <h5>{{ trans('common.actions') }}</h5>
@@ -171,4 +124,54 @@
         </div>
 
     </div>
+
+    @if($page->tags->count() > 0)
+        <section>
+            @include('entities.tag-list', ['entity' => $page])
+        </section>
+    @endif
+
+    <div id="page-details" class="entity-details mb-xl">
+        <h5>{{ trans('common.details') }}</h5>
+        <div class="body text-small blended-links">
+            @include('entities.meta', ['entity' => $page])
+
+            @if($book->restricted)
+                <div class="active-restriction">
+                    @if(userCan('restrictions-manage', $book))
+                        <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
+                    @else
+                        @icon('lock'){{ trans('entities.books_permissions_active') }}
+                    @endif
+                </div>
+            @endif
+
+            @if($page->chapter && $page->chapter->restricted)
+                <div class="active-restriction">
+                    @if(userCan('restrictions-manage', $page->chapter))
+                        <a href="{{ $page->chapter->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.chapters_permissions_active') }}</a>
+                    @else
+                        @icon('lock'){{ trans('entities.chapters_permissions_active') }}
+                    @endif
+                </div>
+            @endif
+
+            @if($page->restricted)
+                <div class="active-restriction">
+                    @if(userCan('restrictions-manage', $page))
+                        <a href="{{ $page->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.pages_permissions_active') }}</a>
+                    @else
+                        @icon('lock'){{ trans('entities.pages_permissions_active') }}
+                    @endif
+                </div>
+            @endif
+
+            @if($page->template)
+                <div>
+                    @icon('template'){{ trans('entities.pages_is_template') }}
+                </div>
+            @endif
+        </div>
+    </div>
+
 @stop
