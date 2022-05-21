@@ -9,16 +9,24 @@ class ChapterToggle {
     }
 
     open() {
-        const list = this.elem.parentNode.querySelector('.inset-list');
+        const list = this.elem.parentNode.parentNode.parentNode.querySelector('.inset-list');
         this.elem.classList.add('open');
         this.elem.setAttribute('aria-expanded', 'true');
+        const box=this.elem.parentNode.parentNode.parentNode.querySelector('.chapter-child-menu-box');
+        if (box != null) {
+            box.classList.remove('hidden');
+        }
         slideDown(list, 240);
     }
 
     close() {
-        const list = this.elem.parentNode.querySelector('.inset-list');
+        const list = this.elem.parentNode.parentNode.parentNode.querySelector('.inset-list');
         this.elem.classList.remove('open');
         this.elem.setAttribute('aria-expanded', 'false');
+        const box=this.elem.parentNode.parentNode.parentNode.querySelector('.chapter-child-menu-box');
+        if (box != null) {
+            box.classList.add('hidden');
+        }
         slideUp(list, 240);
     }
 

@@ -27,7 +27,7 @@
 
     <div refs="tri-layout@container" class="tri-layout-container" @yield('container-attrs') >
 
-        <div class="tri-layout-left print-hidden pt-m" id="sidebar">
+        <div class="tri-layout-left print-hidden pt-m" id="sidebar" style="overflow-y: auto;">
             <aside class="tri-layout-left-contents">
                 @yield('left')
             </aside>

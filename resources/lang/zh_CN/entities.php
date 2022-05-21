@@ -134,7 +134,7 @@ return [
     'books_empty_add_chapter' => '添加分组',
     'books_permissions_active' => '有效的项目权限',
     'books_search_this' => '搜索这本项目',
-    'books_navigation' => '项目导航',
+    'books_navigation' => '目录',
     'books_sort' => '排序项目内容',
     'books_sort_named' => '排序项目「:bookName」',
     'books_sort_name' => '按名称排序',
