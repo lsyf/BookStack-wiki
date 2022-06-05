@@ -1,0 +1,1 @@
+git archive --format=tar.gz --output bookstack.tar.gz HEAD
