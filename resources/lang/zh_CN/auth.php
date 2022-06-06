@@ -16,7 +16,7 @@ return [
     'sign_up_with' => '通过 :socialDriver 账号登录',
     'logout' => '注销',
 
-    'name' => '名称',
+    'name' => '中文姓名',
     'username' => '用户名',
     'email' => 'Email地址',
     'password' => '密码',
